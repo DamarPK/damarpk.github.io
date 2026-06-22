@@ -3,37 +3,221 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Professional Links</title>
-    <!-- Menggunakan font modern Plus Jakarta Sans ala tech startup -->
+    <title>Professional Hub | Your Name</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-            --text-main: #1a1d24;
+            --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            --text-main: #0f172a;
             --text-muted: #64748b;
-            --card-bg: rgba(255, 255, 255, 0.75);
+            --card-bg: rgba(255, 255, 255, 0.8);
             --card-border: rgba(255, 255, 255, 0.6);
             --button-bg: #FFFFFF;
-            --button-hover: #1a1d24;
+            --button-hover: #0f172a;
             --button-hover-text: #FFFFFF;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 16px -8px rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.02);
+            --shadow-md: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        /* Mode Gelap otomatis jika device user menggunakan Dark Mode */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg-gradient: linear-gradient(135deg, #0f1115 0%, #1a1d24 100%);
+                --bg-gradient: linear-gradient(135deg, #0b0f17 0%, #1e293b 100%);
                 --text-main: #f8fafc;
                 --text-muted: #94a3b8;
-                --card-bg: rgba(26, 29, 36, 0.7);
-                --card-border: rgba(255, 255, 255, 0.05);
-                --button-bg: #242933;
+                --card-bg: rgba(15, 23, 42, 0.6);
+                --card-border: rgba(255, 255, 255, 0.04);
+                --button-bg: #1e293b;
                 --button-hover: #ffffff;
-                --button-hover-text: #0f1115;
+                --button-hover-text: #0f172a;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background: var(--bg-gradient);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 32px;
+            padding: 2.5rem 1.75rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--button-bg);
+        }
+
+        .name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.25rem;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* Section Title (Sub-Heading) */
+        .section-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin: 1.5rem 0 0.75rem 0;
+            font-weight: 700;
+            text-align: left;
+            padding-left: 4px;
+        }
+
+        /* Layout Wrappers */
+        .links-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        /* Grid 2 Kolom untuk Medsos & Money */
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        /* Button Style */
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            background: var(--button-bg);
+            padding: 1rem;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            background: var(--button-hover);
+            color: var(--button-hover-text);
+            transform: translateY(-2px);
+        }
+
+        /* Highlight Portofolio (Utama) */
+        .featured {
+            background: var(--text-main);
+            color: var(--button-bg);
+            font-weight: 600;
+        }
+        .featured:hover {
+            background: var(--text-main);
+            color: var(--button-bg);
+            opacity: 0.9;
+        }
+
+        .footer {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- PROFIL -->
+        <div class="profile">
+            <img class="avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80" alt="Avatar">
+            <h1 class="name">Nama Kamu</h1>
+            <p class="tagline">Tech Enthusiast & Content Creator</p>
+        </div>
+
+        <!-- SEKSI 1: KREDIBILITAS & KARYA -->
+        <h2 class="section-title">Professional Core</h2>
+        <div class="links-stack">
+            <!-- Portofolio dibuat paling mencolok -->
+            <a href="https://portfolio-kamu.com" class="btn featured" target="_blank" rel="noopener">
+                💼 View My Portfolio
+            </a>
+            <a href="https://drive.google.com/...cv-kamu.pdf" class="btn" target="_blank" rel="noopener">
+                📄 Download CV / Resume
+            </a>
+            <a href="https://linkedin.com/in/username" class="btn" target="_blank" rel="noopener">
+                🤝 LinkedIn Profile
+            </a>
+            <a href="https://sertifikasi-kamu.com" class="btn" target="_blank" rel="noopener">
+                📜 Certifications & Badges
+            </a>
+        </div>
+
+        <!-- SEKSI 2: HUBUNGI LANGSUNG -->
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="links-stack">
+            <a href="mailto:emailkamu@gmail.com" class="btn" target="_blank" rel="noopener">
+                ✉️ emailkamu@gmail.com
+            </a>
+        </div>
+
+        <!-- SEKSI 3: SOSIAL MEDIA & MONETISASI (GRID 2 KOLOM) -->
+        <h2 class="section-title">Socials & Support</h2>
+        <div class="links-grid">
+            <!-- Baris Medsos -->
+            <a href="https://instagram.com/username" class="btn" target="_blank" rel="noopener">📸 Instagram</a>
+            <a href="https://x.com/username" class="btn" target="_blank" rel="noopener">🐦 X / Twitter</a>
+            
+            <!-- Baris Money / Support -->
+            <a href="https://saweria.co/username" class="btn" target="_blank" rel="noopener">☕ Saweria</a>
+            <a href="https://gumroad.com/username" class="btn" target="_blank" rel="noopener">🛍️ Digital Store</a>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2026 Nama Kamu. Powered by Clean Code.
+        </div>
+    </div>
+
+</body>
+</html>
             }
         }
 
